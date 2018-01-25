@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IncidentsAPI.Models.Interfaces;
+using IncidentsAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,6 +26,8 @@ namespace IncidentsAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<ILocalityService, LocalityService>();
+            services.AddTransient<IIncidentService, IncidentService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,0 +1,40 @@
+﻿Functional requirements
+
+It should allow registering new incidents
+Endpoint: POST /incidents
+
+It should allow retrieving a list of incidents
+Endpoint: GET /incidents
+
+It should allow archiving incidents
+Endpoint: POST /incidents/:incidentId/archive
+Remarks: Archived incidents should not appear in GET /incidents
+
+It should allow retrieving a list of all localities in the city
+Endpoint: GET /localities
+
+It should allow retrieving a single locality
+Endpoint: GET /localities/:localityId
+
+Incidents should have the following structure:
+
+{
+	"_id": "eWRhpRV",
+	"kind": "ROBBERY", // One of [ROBBERY, MURDER, TRAFFIC_ACCIDENT, SHOOTING, ASSAUL
+	T]
+	"locationId": "23TplPdS",
+	"happenedAt": "2018-01-16T17:14:54.732Z",
+	"isArchived": false
+}
+
+Localities should have the following structure:
+
+{
+	"_id": "23TplPdS",
+	"name": "Los Alcarrizos"
+}
+
+Non-functional requirements
+It should support pagination and sorting (where relevant)
+It should include a Dockerfile so the service can be installed using docker
+It should include tests for both functional and non-functional (excluding infrastructural) requirementss
